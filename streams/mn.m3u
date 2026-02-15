@@ -59,6 +59,8 @@ https://cdn4.skygo.mn/live/disk1/MNB2/HLSv3-FTA/MNB2.m3u8
 https://live.mnb.mn/hls/mn2.stream.m3u8
 #EXTINF:-1 tvg-id="MongolianNewsChannel.mn@SD",MNC (720p)
 https://cdn4.skygo.mn/live/disk1/MNCTV/HLSv3-FTA/MNCTV.m3u8
+#EXTINF:-1 tvg-id="Volplus.mn@SD",MongolTV +1 
+https://cdn4.skygo.mn/live/disk1/VolumePlus/HLSv3-FTA/VolumePlus.m3u8
 #EXTINF:-1 tvg-id="MovieBox.mn@SD",MovieBox (720p)
 https://cdn4.skygo.mn/live/disk1/Moviebox/HLSv3-FTA/Moviebox.m3u8
 #EXTINF:-1 tvg-id="NTV.mn@SD",NTV (1080p)
@@ -125,3 +127,4 @@ https://cdn4.skygo.mn/live/disk1/UlziiTV/HLSv3-FTA/UlziiTV.m3u8
 https://cdn4.skygo.mn/live/disk1/SoyonGegeeruulegch/HLSv3-FTA/SoyonGegeeruulegch.m3u8
 #EXTINF:-1 tvg-id="",Хөгжим (720p)
 https://cdn4.skygo.mn/live/disk1/Khugjim/HLSv3-FTA/Khugjim.m3u8
+
