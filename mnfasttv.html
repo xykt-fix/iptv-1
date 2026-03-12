@@ -1,0 +1,255 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <html>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 <head>\
+<meta charset="UTF-8">\
+<title>FAST TV+</title>\
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>\
+<style>\
+body\{margin:0;background:#070707;color:white;font-family:Arial\}\
+\
+/* TOP BAR */\
+header\{\
+background:#0f0f0f;\
+padding:16px 22px;\
+font-size:24px;\
+font-weight:bold;\
+display:flex;\
+justify-content:space-between;\
+align-items:center;\
+border-bottom:1px solid #222;\
+\}\
+\
+.logo\{color:#6cf\}\
+\
+/* HERO PLAYER */\
+#hero\{\
+width:100%;\
+height:45vh;\
+background:black;\
+position:relative;\
+border-bottom:2px solid #111\
+\}\
+\
+#hero video\{\
+width:100%;\
+height:100%;\
+object-fit:cover\
+\}\
+\
+#hero-info\{\
+position:absolute;\
+bottom:20px;\
+left:30px;\
+background:rgba(0,0,0,.6);\
+padding:12px 18px;\
+border-radius:8px\
+\}\
+\
+#hero-channel\{font-size:20px;font-weight:bold\}\
+#hero-number\{font-size:14px;opacity:.7\}\
+\
+/* CONTENT */\
+.section\{padding:20px\}\
+.section-title\{font-size:18px;margin-bottom:10px;opacity:.9\}\
+\
+.row\{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px\}\
+\
+.channel\{\
+min-width:170px;\
+background:#181818;\
+border-radius:12px;\
+padding:12px;\
+text-align:center;\
+cursor:pointer;\
+transition:.2s;\
+outline:none\
+\}\
+\
+.channel:hover,.channel:focus\{\
+background:#2b2b2b;\
+transform:scale(1.08);\
+box-shadow:0 0 12px rgba(255,255,255,.2)\
+\}\
+\
+.channel img\{\
+width:100%;\
+height:70px;\
+object-fit:contain\
+\}\
+\
+.num\{font-size:12px;opacity:.6\}\
+.name\{font-size:14px;margin-top:4px\}\
+\
+/* MINI PLAYER BAR */\
+#miniPlayer\{\
+position:fixed;\
+bottom:0;\
+left:0;\
+width:100%;\
+height:90px;\
+background:#0c0c0c;\
+border-top:1px solid #222;\
+display:flex;\
+align-items:center;\
+padding:10px 20px;\
+gap:15px\
+\}\
+\
+#miniPlayer video\{\
+height:70px;\
+width:120px\
+\}\
+\
+#miniTitle\{font-size:16px\}\
+#miniNumber\{font-size:12px;opacity:.7\}\
+\
+</style>\
+</head>\
+<body>\
+\
+<header>\
+<div class="logo">FAST TV+</div>\
+<div>Free Streaming Channels</div>\
+</header>\
+\
+<!-- HERO PLAYER -->\
+<div id="hero">\
+<video id="heroVideo" autoplay muted></video>\
+\
+<div id="hero-info">\
+<div id="hero-channel">Select a Channel</div>\
+<div id="hero-number"></div>\
+</div>\
+\
+</div>\
+\
+<div id="content"></div>\
+\
+<!-- MINI PLAYER -->\
+<div id="miniPlayer">\
+<video id="miniVideo" muted autoplay></video>\
+<div>\
+<div id="miniTitle">No channel</div>\
+<div id="miniNumber"></div>\
+</div>\
+</div>\
+\
+<script>\
+\
+const sections=\{\
+\
+"Mongolian Channels":[\
+\{num:1100,name:"MNB HD",logo:"https://i.imgur.com/9YVp1SF.png",url:"https://cdn4.skygo.mn/live/disk1/MNB/HLSv3-FTA/MNB.m3u8"\},\
+\{num:1110,name:"UBS FAST",logo:"https://i.imgur.com/Ys3TJT0.png",url:"https://cdn4.skygo.mn/live/disk1/UBSHD/HLSv3-FTA/UBSHD.m3u8"\},\
+\{num:1120,name:"Education",logo:"https://i.imgur.com/RUclKKz.jpeg",url:"https://cdn4.skygo.mn/live/disk1/Education/HLSv3-FTA/Education.m3u8"\},\
+\{num:1130,name:"SBN",logo:"https://i.imgur.com/cTJgvP1.png",url:"https://cdn4.skygo.mn/live/disk1/SBN/HLSv3-FTA/SBN.m3u8"\},\
+\{num:1140,name:"TV9",logo:"https://i.imgur.com/pboiiXT.png",url:"https://cdn4.skygo.mn/live/disk1/TV9HD/HLSv3-FTA/TV9HD.m3u8"\},\
+\{num:1160,name:"Mongol TV",logo:"https://i.imgur.com/w91Y2V2.png",url:"https://cdn4.skygo.mn/live/disk1/Mongol_HD/HLSv3-FTA/Mongol_HD.m3u8"\},\
+\{num:1170,name:"NTV",logo:"https://i.imgur.com/wuAxR74.png",url:"https://cdn4.skygo.mn/live/disk1/NTVHD/HLSv3-FTA/NTVHD.m3u8"\}\
+],\
+\
+"Kids":[\
+\{num:1230,name:"Ninja Kids",logo:"https://i.imgur.com/nSlgmS1.jpeg",url:"https://d3868b4ny0rgdf.cloudfront.net/playlist.m3u8"\},\
+\{num:1250,name:"Toon Goggles",logo:"https://i.imgur.com/FhrlJdI.jpeg",url:"https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=37"\},\
+\{num:1260,name:"Dreambox",logo:"https://static.zuragt.mn/uploads/channels/dream.png",url:"https://cdn4.skygo.mn/live/disk1/Dreambox/HLSv3-FTA/Dreambox.m3u8"\},\
+\{num:1470,name:"Toon Goggles Jr",logo:"https://i.imgur.com/xEBgEv4.jpeg",url:"https://d3i6upqaqzosi1.cloudfront.net/tg/jr_us/tg_jr_us.m3u8"\},\
+\{num:1490,name:"HappyKids",logo:"https://worldscreen.com/tvkids/wp-content/uploads/sites/9/2017/07/FutureToday-HappyKids-0223.png",url:"https://dil9xdvretp0f.cloudfront.net/index.m3u8"\}\
+],\
+\
+"Sports":[\
+\{num:1310,name:"BeIN Sports Extra",logo:"https://i.imgur.com/3QnmEMN.png",url:"https://d9ssxzmclhfo4.cloudfront.net/bein_sports.m3u8"\},\
+\{num:1330,name:"Red Bull TV",logo:"https://i.imgur.com/EfSJZqB.png",url:"https://e7c8f7d5.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWdiX1JlZEJ1bGxUVi0xX0hMUw/playlist.m3u8"\},\
+\{num:1350,name:"Stadium Poker",logo:"",url:"https://wurl120sports.global.transmit.live/hls/679a907dce42a042c23ace37/v1/stadium_gracenote/samsung_us/latest/main/hls/playlist.m3u8"\}\
+],\
+\
+"Movies":[\
+\{num:1400,name:"MovieBox",logo:"https://i.imgur.com/z4rYe8p.png",url:"https://cdn4.skygo.mn/live/disk1/Moviebox/HLSv3-FTA/Moviebox.m3u8"\},\
+\{num:1410,name:"AsianBox",logo:"https://i.imgur.com/5A9HhBh.jpeg",url:"https://cdn4.skygo.mn/live/disk1/AsianBOX/HLSv3-FTA/AsianBOX.m3u8"\},\
+\{num:1380,name:"Gravitas Movies",logo:"https://imgur.com/vMGwLZo.png",url:"https://d6dg3ebeih71x.cloudfront.net/Gravitas_Movies.m3u8"\}\
+],\
+\
+"Lifestyle":[\
+\{num:1280,name:"4K Travel",logo:"https://i.imgur.com/R5jI8fh.png",url:"https://streams2.sofast.tv/sofastplayout/33c31ac4-51fa-46ae-afd0-0d1fe5e60a80_0_HLS/master.m3u8"\},\
+\{num:1450,name:"Cooking Panda",logo:"https://images.plex.tv/photo?size=small-60&scale=2&url=https://provider-static.plex.tv/epg/images/ott_channels/logos/cooking-panda.png",url:"https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=46"\}\
+]\
+\
+\};\
+\
+const content=document.getElementById("content");\
+\
+for(const category in sections)\{\
+\
+const section=document.createElement("div");\
+section.className="section";\
+\
+const title=document.createElement("div");\
+title.className="section-title";\
+title.innerText=category;\
+\
+const row=document.createElement("div");\
+row.className="row";\
+\
+sections[category].forEach(ch=>\{\
+\
+const tile=document.createElement("div");\
+tile.className="channel";\
+tile.tabIndex=0;\
+\
+ tile.innerHTML=`\
+<img src="$\{ch.logo\}">\
+<div class='num'>$\{ch.num\}</div>\
+<div class='name'>$\{ch.name\}</div>`;\
+\
+ tile.onclick=()=>playChannel(ch);\
+\
+ row.appendChild(tile);\
+\
+\});\
+\
+section.appendChild(title);\
+section.appendChild(row);\
+\
+content.appendChild(section);\
+\
+\}\
+\
+function playChannel(ch)\{\
+\
+playStream("heroVideo",ch.url);\
+playStream("miniVideo",ch.url);\
+\
+document.getElementById("hero-channel").innerText=ch.name;\
+document.getElementById("hero-number").innerText="Channel "+ch.num;\
+\
+document.getElementById("miniTitle").innerText=ch.name;\
+document.getElementById("miniNumber").innerText="Channel "+ch.num;\
+\
+\}\
+\
+function playStream(id,url)\{\
+\
+const video=document.getElementById(id);\
+\
+if(Hls.isSupported())\{\
+const hls=new Hls();\
+hls.loadSource(url);\
+hls.attachMedia(video);\
+\}\
+else\{\
+video.src=url;\
+\}\
+\
+\}\
+\
+</script>\
+\
+</body>\
+</html>\
+}
