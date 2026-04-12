@@ -1,0 +1,26 @@
+#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Logo_of_the_Mongolian_National_Broadcaster.svg" tvg-id="MUONT1.mn",1 MNB HD
+https://cdn4.skygo.mn/live/disk1/MNB/HLSv3-FTA/MNB.m3u8
+#EXTINF:-1 tvg-logo="https://new.skytel.mn/uploads/channel/ubs-6790c5bec2085.jpeg" tvg-id="UBS-1.mn",2 UBS Fast
+https://cdn4.skygo.mn/live/disk1/UBSHD/HLSv3-FTA/UBSHD.m3u8
+#EXTINF:-1 tvg-logo="https://new.skytel.mn/uploads/channel/edutv-6790c6b33a579.jpeg" tvg-id="EducationTV.mn@HD",3 Education FAST HD
+https://cdn4.skygo.mn/live/disk1/Education/HLSv3-FTA/Education.m3u8
+#EXTINF:-1 tvg-logo="https://new.skytel.mn/uploads/channel/sbn-67613aeba8951.jpeg" tvg-id="SBN.mn@HD",4 SBN
+https://cdn4.skygo.mn/live/disk1/SBN/HLSv3-FTA/SBN.m3u8
+#EXTINF:-1 tvg-logo="https://new.skytel.mn/uploads/channel/tv9-6791badd22fdb.jpeg" tvg-id="TV9.mn",5 TV9
+https://cdn4.skygo.mn/live/disk1/TV9HD/HLSv3-FTA/TV9HD.m3u8
+#EXTINF:-1 tvg-logo="https://new.skytel.mn/uploads/channel/Central-6790c7780028d.jpeg" tvg-id="CentralTV.mn@HD",6 Central Television FAST
+https://cdn4.skygo.mn/live/disk1/Ekh_Oron/HLSv3-FTA/Ekh_Oron.m3u8
+#EXTINF:-1 tvg-logo="https://i.imgur.com/w91Y2V2.png" tvg-id="MongolTV.mn",7 Mongol TV FAST
+https://cdn4.skygo.mn/live/disk1/Mongol_HD/HLSv3-FTA/Mongol_HD.m3u8
+#EXTINF:-1 tvg-logo="https://new.skytel.mn/uploads/channel/ntv-67613ddcc3c2e.jpeg" tvg-id="NTV.mn",8 NTV fast
+https://cdn4.skygo.mn/live/disk1/NTVHD/HLSv3-FTA/NTVHD.m3u8
+#EXTINF:-1 tvg-logo="https://new.skytel.mn/uploads/channel/25-6790c64bbc14a.jpeg" tvg-id="TV25.mn",9 MN25 FAST 
+https://cdn4.skygo.mn/live/disk1/MN25/HLSv3-FTA/MN25.m3u8
+#EXTINF:-1 tvg-logo="https://i.imgur.com/2Xs8HNA.png" tvg-id="EagleNews.mn",10 Eagle FAST
+https://cdn4.skygo.mn/live/disk1/Eagle/HLSv3-FTA/Eagle.m3u8
+#EXTINF:-1 tvg-logo="https://new.skytel.mn/uploads/channel/etv-67613a7d2f83c.jpeg" tvg-id="ETV.mn",11 ETVF HD
+https://cdn4.skygo.mn/live/disk1/ETV/HLSv3-FTA/ETV.m3u8
+#EXTINF:-1 tvg-logo="https://new.skytel.mn/uploads/channel/tenger-6790ca2e09a8d.jpeg" tvg-id="Tengertv.mn@HD",12 Tenger HD
+https://cdn4.skygo.mn/live/disk1/VTV/HLSv3-FTA/VTV.m3u8
+#EXTINF:-1 tvg-logo="https://commons.wikimedia.org/wiki/File:CNBC_logo.svg" tvg-id="CNBC.us@Mongolia",99 CNBC Mongolia
+https://cdn4.skygo.mn/live/disk1/CNBC/HLSv3-FTA/CNBC.m3u8
